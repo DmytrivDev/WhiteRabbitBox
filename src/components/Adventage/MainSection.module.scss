@@ -1,0 +1,43 @@
+.section__main {
+    margin-bottom: 6.714em;
+    background-color: var(--cb);
+}
+
+.msin__container {
+    padding-top: 1.786em;
+    padding-bottom: 3.429em;
+    position: relative;
+}
+
+@media screen and (min-width: 460px) {
+    .msin__container {
+        padding-bottom: 1.6em;
+    }
+}
+
+@media screen and (min-width: 760px) {
+    .msin__container {
+        padding-top: 1.143em;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .section__main {
+        height: 32.857em;
+        -webkit-background-size: 35.714em;
+        background-size: 35.714em;
+        margin-bottom: 0;
+        background-image: url(../img/backgrounds/main_bg.png);
+        background-position: center top;
+        display: block;
+        .container {
+            display: block;
+        }
+    }
+    .msin__container {
+        padding-top: 7.143em;
+        padding-bottom: 0;
+    }
+}

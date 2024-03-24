@@ -4,7 +4,7 @@ import css from "./Navigation.module.scss";
 
 function Navigation() {
   return (
-    <ul className={clsx(css.header__nav, "flex")}>
+    <ul className={clsx(css.header__nav)}>
       <li>
         <a href="products.html">Наші бокси</a>
       </li>
