@@ -1,12 +1,12 @@
 import css from "./Hamburger.module.scss";
 
-function Hamburger() {
+function Hamburger({hendleNav}) {
   return (
-    <a href="#" className={css.hamburger}>
+    <button onClick={hendleNav} className={css.hamburger}>
+      <span></span> 
       <span></span>
       <span></span>
-      <span></span>
-    </a>
+    </button>
   );
 }
 

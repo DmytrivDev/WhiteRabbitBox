@@ -22,21 +22,6 @@
         padding-left: 1.429em;
         position: relative;
 
-        &.current-menu-item {
-            a {
-                &::after {
-                    height: 0.143em;
-                    border-radius: 0.143em;
-                    content: "";
-                    position: absolute;
-                    background-color: var(--cy);
-                    bottom: 0;
-                    right: 0;
-                    left: 0;
-                }
-            }
-        }
-
         &::before {
             width: 0.357em;
             height: 0.357em;
@@ -109,19 +94,11 @@
     }
 }
 
-.mobnav__underlay {
-    display: none;
-}
-
 @media screen and (max-width: 959px) {
-    body.openedNav {
+    .mobile__nav {
         overflow: hidden;
-        .mobile__nav {
+        &.openedNav {
             transform: translateX(0);
-        }
-        .mobnav__underlay {
-            opacity: 0.5;
-            visibility: visible;
         }
     }
 }
@@ -138,10 +115,9 @@
         right: 0;
         bottom: 0;
         top: 0;
+        opacity: 0.5;
         background-color: #000;
         z-index: 50;
-        opacity: 0;
-        visibility: hidden;
         transition: 0.3s;
     }
 }

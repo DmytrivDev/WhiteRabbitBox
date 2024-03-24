@@ -1,3 +1,4 @@
+import { useState } from "react";
 import clsx from "clsx";
 
 import Logo from "./Logo/Logo";
@@ -10,6 +11,14 @@ import MobileNav from "./MobileNav/MobileNav";
 import css from "./Header.module.scss";
 
 function Header() {
+  const [isOpenNav, setIsOpenNav] = useState(false);
+
+  function hendleNav(event) {
+    event.preventDefault();
+
+    setIsOpenNav(!isOpenNav);
+  }
+
   return (
     <>
       <header className={css.header}>
@@ -22,12 +31,12 @@ function Header() {
               <Navigation />
               <Socials />
               <HeaderCart />
-              <Hamburger />
+              <Hamburger hendleNav={hendleNav} />
             </div>
           </div>
         </div>
       </header>
-      <MobileNav />
+      {isOpenNav ? <MobileNav isOpenNav={isOpenNav} /> : ""}
     </>
   );
 }

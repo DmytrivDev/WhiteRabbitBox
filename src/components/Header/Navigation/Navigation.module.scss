@@ -5,6 +5,9 @@
 @media screen and (min-width: 960px) {
     .header__nav {
         margin-right: 2.143em;
+        gap: 1em;
+        position: relative;
+        z-index: 2;
         display: flex;
 
         li {
@@ -14,24 +17,18 @@
                 }
             }
 
-            &.current-menu-item {
-                & > a { 
-                    color: var(--cb);
-                }
+            a.active {
+                color: var(--cb);
             }
         }
+
         & > li {
-            margin-right: 2.143em;
-
-            &:last-child {
-                margin: 0;
-            }
-
             a {
+                font-size: 1em;
                 color: var(--ct);
             }
 
-            &.has__children {
+            &.has__child {
                 padding-right: 1.2em;
                 position: relative;
                 &::after {
@@ -59,15 +56,25 @@
         }
         .sub__menu {
             border-radius: 0.714em;
-            padding: 0.5em;
-            right: -1em;
+            padding: .5em 1em;
+            left: -1em;
             border: 1px solid var(--cb);
             position: absolute;
-            top: 100%;
+            top: calc(100% + .5em);
             background-color: #fff;
             opacity: 0;
             visibility: hidden;
             transition: 0.2s;
+
+            &::before {
+                height: 0.5em;
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                transform: translateY(-100%);
+            }
 
             li {
                 margin-bottom: 0.286em;

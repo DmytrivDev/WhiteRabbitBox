@@ -10,7 +10,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/pro-nas" element={<About />} />
       </Routes>
     </>
   );

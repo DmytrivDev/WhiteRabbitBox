@@ -8,15 +8,15 @@ import css from "./MainSection.module.scss";
 function Header() {
   return (
     <section className={css.section__main}>
-    <div className="container">
-      <div className={css.msin__container}>
-        <MainItems />
-        <MainItems />
+      <div className="container">
+        <div className={css.msin__container}>
+          <MainItems />
+          <MainItems />
 
-        <FreeDelievery />
+          <FreeDelievery />
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
   );
 }
 

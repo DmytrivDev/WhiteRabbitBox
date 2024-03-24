@@ -1,5 +1,6 @@
 import Header from '../components/Header/Header';
 import MainSection from '../components/MainSection/MainSection'
+import Adventage from '../components/Adventage/Adventage'
 
 function Main() {
 
@@ -8,6 +9,7 @@ function Main() {
         <Header />
         <div className="wrapper">
           <MainSection />
+          <Adventage />
         </div>
       </>
     )
