@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import clsx from "clsx";
 
 import Logo from "./Logo/Logo";
@@ -12,12 +12,21 @@ import css from "./Header.module.scss";
 
 function Header() {
   const [isOpenNav, setIsOpenNav] = useState(false);
+  const [isWindowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  function hendleNav(event) {
-    event.preventDefault();
-
+  const hendleNav = () => {
     setIsOpenNav(!isOpenNav);
   }
+
+  useEffect(() => {
+    window.addEventListener("resize", lisnerWindowWidth);
+
+    return () => window.removeEventListener("resize", lisnerWindowWidth);
+  }, []);
+
+  const lisnerWindowWidth = () => {
+    setWindowWidth(window.innerWidth);
+  };
 
   return (
     <>
@@ -28,15 +37,15 @@ function Header() {
               <Logo />
             </div>
             <div className={clsx(css.header__part, "flex")}>
-              <Navigation />
+              {isWindowWidth >= 960 ? <Navigation /> : ""}
               <Socials />
               <HeaderCart />
-              <Hamburger hendleNav={hendleNav} />
+              {isWindowWidth < 960 ? <Hamburger hendleNav={hendleNav} isOpenNav={isOpenNav} /> : ""}
             </div>
           </div>
         </div>
       </header>
-      {isOpenNav ? <MobileNav isOpenNav={isOpenNav} /> : ""}
+      {isWindowWidth < 960 ? <MobileNav isOpenNav={isOpenNav} hendleNav={hendleNav} /> : ""}
     </>
   );
 }

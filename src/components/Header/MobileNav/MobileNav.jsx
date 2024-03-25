@@ -1,15 +1,34 @@
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { slide as Menu } from "react-burger-menu";
 import clsx from "clsx";
 
 import css from "./MobileNav.module.scss";
 
-function MobileNav({ isOpenNav }) {
+function MobileNav({ isOpenNav, hendleNav }) {
   const buildLinkClass = ({ isActive }) => {
     return clsx(isActive && css.active);
   };
 
+  useEffect(() => {
+    if(isOpenNav) {
+      document.body.classList.add('overhideAll');
+    } else {
+      document.body.classList.remove('overhideAll');
+    }
+
+    return () => document.body.classList.remove('overhideAll');
+  }, [isOpenNav]);
+
   return (
-    <>
+    <Menu
+      isOpen={isOpenNav}
+      right
+      width={"26.786em"}
+      onClose={(hendleNav)}
+      className={css.mobile__navigationcont}
+      overlayClassName={css.mobile__navoverlay}
+    >
       <div
         className={clsx(css.mobile__nav, {
           [css.openedNav]: isOpenNav,
@@ -95,8 +114,7 @@ function MobileNav({ isOpenNav }) {
           </div>
         </div>
       </div>
-      <div className={css.mobnav__underlay}></div>
-    </>
+    </Menu>
   );
 }
 

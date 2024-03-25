@@ -14,7 +14,7 @@ function Navigation() {
       <ul className={css.header__nav}>
         <li>
           <NavLink to="/ourboxes" className={buildLinkClass}>
-            Наші бокси
+            Наші бокси 
           </NavLink>
         </li>
         <li>

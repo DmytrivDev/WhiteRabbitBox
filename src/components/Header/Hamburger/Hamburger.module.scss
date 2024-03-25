@@ -31,8 +31,8 @@
 }
 
 @media screen and (max-width: 959px) {
-    body.openedNav {
-        .hamburger {
+    .hamburger {
+        &.opened {
             span {
                 &:nth-child(1) {
                     top: 50%;
@@ -50,10 +50,4 @@
             }
         }
     }
-}
-
-@media screen and (min-width: 960px) {
-    .hamburger {
-        display: none;
-    } 
 }

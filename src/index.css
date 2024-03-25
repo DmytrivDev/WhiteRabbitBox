@@ -52,6 +52,10 @@ input {
   outline: none;
 }
 
+button {
+  background-color: transparent;
+}
+
 textarea {
   outline: none;
   border: none;
