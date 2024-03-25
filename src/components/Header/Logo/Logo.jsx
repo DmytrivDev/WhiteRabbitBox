@@ -7,7 +7,7 @@ function Logo() {
   return (
     <>
       <NavLink to="/" className={css.logo__link}>
-        <img src="/src/assets/img/icons/logo.svg" className={css.logo__link} />
+        <img src="/img/header/logo.svg" className={css.logo__link} />
       </NavLink>
       <NavLink to="/" className={css.header__title}>
         Книжкові бокси від Білого кролика
