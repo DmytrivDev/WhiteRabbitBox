@@ -7,7 +7,7 @@ import Navigation from "./Navigation/Navigation";
 import Socials from "./Socials/Socials";
 import HeaderCart from "./HeaderCart/HeaderCart";
 import Hamburger from "./Hamburger/Hamburger";
-import MobileNav from "./MobileNav/MobileNav";
+import MobileNav from "./MobileNav/MobileNav"; 
 
 import data from '../../../public/resource/header/header.json';
 
