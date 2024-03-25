@@ -28,16 +28,16 @@ function Socials() {
       {openSocials ? (
         <div className={css.header__soclist}>
           <a href="#" target="_blank">
-            <img src="/header/img/socials/hsoc_1.svg" alt="" />
+            <img src="/resource/header/img/socials/hsoc_1.svg" alt="" />
           </a>
           <a href="#" target="_blank">
-            <img src="/header/img/socials/hsoc_2.svg" alt="" />
+            <img src="/resource/header/img/socials/hsoc_2.svg" alt="" />
           </a>
           <a href="#" target="_blank">
-            <img src="/header/img/socials/hsoc_3.svg" alt="" />
+            <img src="/resource/header/img/socials/hsoc_3.svg" alt="" />
           </a>
           <a href="#" target="_blank">
-            <img src="/header/img/socials/hsoc_4.svg" alt="" />
+            <img src="/resource/header/img/socials/hsoc_4.svg" alt="" />
           </a>
           <button
             onClick={hendleSocials}
