@@ -1,0 +1,72 @@
+{
+    "logo": {
+      "logo_imgname": "logo.svg",
+      "site_name": "Книжкові бокси від Білого кролика"
+    },
+    "navigation": [
+      {
+        "name": "Наші бокси",
+        "slug": "/ourboxes",
+        "type": "route"
+      },
+      {
+        "name": "Зберіть свій бокс",
+        "slug": "/ourboxes",
+        "type": "route"
+      },
+      {
+        "name": "Підписка на бокси",
+        "slug": "/pidpysky-na-boksy",
+        "type": "route"
+      },
+      {
+        "name": "Сертифікати",
+        "slug": "/sertyfikaty",
+        "type": "route"
+      },
+      {
+        "name": "Книжкові добірки",
+        "slug": "/collection",
+        "type": "route"
+      },
+      {
+        "name": "Про нас",
+        "slug": "/pro-nas",
+        "type": "route",
+        "sub_nav": [
+          {
+            "name": "Хто ми?",
+            "slug": "/pro-nas",
+            "type": "route"
+          },
+          {
+            "name": "Доставка і оплата",
+            "slug": "/dostavka-i-oplata",
+            "type": "route"
+          },
+          {
+            "name": "FAQ",
+            "slug": "/cziny",
+            "type": "route"
+          }
+        ]
+      },
+      {
+        "name": "Тести",
+        "slug": "#",
+        "type": "link",
+        "sub_nav": [
+          {
+            "name": "Тест “Твоя книжкова мова любові”",
+            "slug": "https://love.whiterabbitsbox.com.ua/",
+            "type": "link"
+          },
+          {
+            "name": "Тест “В яких ви стосунках з книжками?”",
+            "slug": "https://test.whiterabbitsbox.com.ua/",
+            "type": "link"
+          }
+        ]
+      }
+    ]
+  }

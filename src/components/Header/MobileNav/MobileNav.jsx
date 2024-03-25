@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 import css from "./MobileNav.module.scss";
 
-function MobileNav({ isOpenNav, hendleNav }) {
+function MobileNav({ isOpenNav, hendleNav, navigationMobile }) {
   const buildLinkClass = ({ isActive }) => {
     return clsx(isActive && css.active);
   };

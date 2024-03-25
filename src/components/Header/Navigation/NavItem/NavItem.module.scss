@@ -1,0 +1,83 @@
+.nav__item {
+    &:hover {
+        & > a {
+            color: var(--cb);
+        }
+    }
+
+    a.active {
+        color: var(--cb);
+    }
+
+    a {
+        font-size: 1em;
+        color: var(--ct);
+    }
+
+    &.has__child {
+        padding-right: 1.2em;
+        position: relative;
+        &::after {
+            width: 1em;
+            height: 1em;
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 55%;
+            transform: translateY(-50%);
+            background-repeat: no-repeat;
+            background-position: center center;
+            -webkit-background-size: contain;
+            background-size: contain;
+            background-image: url("data:image/svg+xml,%3Csvg fill='%23426aff' version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='960px' height='560px' viewBox='0 0 960 560' enable-background='new 0 0 960 560' xml:space='preserve'%3E%3Cg id='Rounded_Rectangle_33_copy_4_1_'%3E%3Cpath d='M480,344.181L268.869,131.889c-15.756-15.859-41.3-15.859-57.054,0c-15.754,15.857-15.754,41.57,0,57.431l237.632,238.937 c8.395,8.451,19.562,12.254,30.553,11.698c10.993,0.556,22.159-3.247,30.555-11.698l237.631-238.937 c15.756-15.86,15.756-41.571,0-57.431s-41.299-15.859-57.051,0L480,344.181z'/%3E%3C/g%3E%3C/svg%3E%0A");
+        }
+
+        &:hover {
+            .sub__menu {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}
+
+.sub__menu {
+    border-radius: 0.714em;
+    padding: 0.5em 1em;
+    left: -1em;
+    border: 1px solid var(--cb);
+    position: absolute;
+    top: calc(100% + 0.5em);
+    background-color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s;
+
+    &::before {
+        height: 0.5em;
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        transform: translateY(-100%);
+    }
+
+    li {
+        margin-bottom: 0.286em;
+
+        &:last-child {
+            margin: 0;
+        }
+
+        a {
+            padding: 0;
+            white-space: nowrap;
+            display: block;
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+}
