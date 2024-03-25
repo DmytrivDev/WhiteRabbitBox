@@ -1,8 +1,9 @@
 import { useMemo } from "react";
-import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 
-import css from "./NavItem.module.scss";
+import { NavLink } from "react-router-dom";
+
+import css from "./NavItemMob.module.scss";
 
 function NavItem({ item, index }) {
   const buildLinkClass = ({ isActive }) => {
@@ -10,9 +11,14 @@ function NavItem({ item, index }) {
   };
 
   const createLink = useMemo(() => {
-    return (itemLink) => { 
+    return (itemLink) => {
       const { name, slug, type } = itemLink;
-      let navItemElement = <NavLink to={slug} className={buildLinkClass}>{name}</NavLink>;
+
+      let navItemElement = (
+        <NavLink to={slug} className={buildLinkClass}>
+          {name}
+        </NavLink>
+      );
 
       if (type === "link") {
         navItemElement = (
@@ -36,25 +42,8 @@ function NavItem({ item, index }) {
   }, []);
 
   return (
-    <li
-      key={index}
-      className={clsx(css.nav__item, {
-        [css.has__child]: item.sub_nav,
-      })}
-    >
+    <li key={index} className={clsx(css.nav__item, buildLinkClass)}>
       {createLink(item)}
-      {item.sub_nav && (
-        <ul className={css.sub__menu}>
-          {item.sub_nav &&
-            item.sub_nav.map((item, index) => {
-              return (
-                <li key={"sub_" + index}>
-                  {createLink(item)}
-                </li>
-              );
-            })}
-        </ul>
-      )}
     </li>
   );
 }

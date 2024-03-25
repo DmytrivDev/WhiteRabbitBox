@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useMediaQuery } from '@react-hook/media-query';
 import clsx from "clsx";
 
 import Logo from "./Logo/Logo";
@@ -14,23 +15,12 @@ import css from "./Header.module.scss";
 
 function Header() {
   const [isOpenNav, setIsOpenNav] = useState(false);
-  const [isWindowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [navigation, setNavigation] = useState(data.navigation);
-  const [navigationMobile, setNavigationMobile,] = useState(data.navigationMobile);
+  const [dataJSON, setdataJSON] = useState(data);
+  const isBreikpoint = useMediaQuery('(max-width: 960px)');
 
   const hendleNav = () => {
     setIsOpenNav(!isOpenNav);
   }
-
-  useEffect(() => {
-    window.addEventListener("resize", lisnerWindowWidth);
-
-    return () => window.removeEventListener("resize", lisnerWindowWidth);
-  }, []);
-
-  const lisnerWindowWidth = () => {
-    setWindowWidth(window.innerWidth);
-  };
 
   return (
     <>
@@ -41,15 +31,15 @@ function Header() {
               <Logo data={data.logo} />
             </div>
             <div className={clsx(css.header__part, "flex")}>
-              {isWindowWidth >= 960 ? <Navigation data={navigation} /> : ""}
-              <Socials />
+              {!isBreikpoint ? <Navigation data={dataJSON.navigation} /> : ""}
+              {dataJSON.socials.length > 0 && (<Socials data={dataJSON.socials} />)}
               <HeaderCart />
-              {isWindowWidth < 960 ? <Hamburger hendleNav={hendleNav} isOpenNav={isOpenNav} /> : ""}
+              {isBreikpoint ? <Hamburger hendleNav={hendleNav} isOpenNav={isOpenNav} /> : ""}
             </div>
           </div>
         </div>
       </header>
-      {isWindowWidth < 960 ? <MobileNav isOpenNav={isOpenNav} hendleNav={hendleNav} navigationMobile={navigationMobile} /> : ""}
+      {isBreikpoint ? <MobileNav isOpenNav={isOpenNav} hendleNav={hendleNav} data={dataJSON.navigationMobile}  dataTests={dataJSON.testsNav} /> : ""}
     </>
   );
 }

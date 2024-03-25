@@ -1,0 +1,34 @@
+.nav__item {
+    margin-bottom: 1.111em;
+    padding-left: 1.429em;
+    position: relative;
+
+    &::before {
+        width: 0.357em;
+        height: 0.357em;
+        border-radius: 50%;
+        background-color: #fff;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        content: "";
+        position: absolute;
+    }
+
+    &:last-child {
+        margin: 0;
+    }
+
+    a {
+        font-size: 1.167em;
+        line-height: 1.571em;
+        color: #fff;
+        display: inline-block;
+        position: relative;
+        font-family: var(--fb);
+
+        &.active {
+            color: var(--cy);
+        }
+    }
+}

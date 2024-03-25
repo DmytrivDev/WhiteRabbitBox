@@ -4,6 +4,24 @@
     height: 1em;
     position: relative;
 
+    &.opened {
+        span {
+            &:nth-child(1) {
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+            }
+
+            &:nth-child(2) {
+                opacity: 0;
+            }
+
+            &:nth-child(3) {
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%) rotate(45deg);
+            }
+        }
+    }
+
     span {
         height: 0.143em;
         border-radius: 2px;
@@ -26,28 +44,6 @@
         &:nth-child(3) {
             top: calc(100% - 0.143em);
             transform: translateX(-50%);
-        }
-    }
-}
-
-@media screen and (max-width: 959px) {
-    .hamburger {
-        &.opened {
-            span {
-                &:nth-child(1) {
-                    top: 50%;
-                    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
-                }
-
-                &:nth-child(2) {
-                    opacity: 0;
-                }
-
-                &:nth-child(3) {
-                    top: 50%;
-                    transform: translateX(-50%) translateY(-50%) rotate(45deg);
-                }
-            }
         }
     }
 }

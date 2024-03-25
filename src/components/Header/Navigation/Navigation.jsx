@@ -1,5 +1,3 @@
-import clsx from "clsx";
-
 import NavItem from "./NavItem/NavItem";
 
 import css from "./Navigation.module.scss"; 

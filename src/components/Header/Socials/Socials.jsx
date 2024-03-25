@@ -3,13 +3,13 @@ import useOnClickOutside from "use-onclickoutside";
 
 import css from "./Socials.module.scss";
 
-function Socials() {
+function Socials({ data }) {
   const [openSocials, setOpenSocials] = useState(false);
-  const ref = useRef(null)
+  const ref = useRef(null);
 
   function hendleSocials(event) {
     event.preventDefault();
-    
+
     setOpenSocials(!openSocials);
   }
 
@@ -17,28 +17,29 @@ function Socials() {
     setOpenSocials(false);
   });
 
+  const createImg = (imgName, img, index) => {
+    const imgSrc = "/resource/header/img/socials/" + img;
+    return <img key={index} src={imgSrc} alt={imgName} />;
+  };
+
   return (
     <div ref={ref} className={css.header__socvont}>
       <div onClick={hendleSocials} className={css.header__socctrl}>
-        <img src="/resource/header/img/socials/hsoc_1.svg" alt="" />
-        <img src="/resource/header/img/socials/hsoc_2.svg" alt="" />
-        <img src="/resource/header/img/socials/hsoc_3.svg" alt="" />
-        <img src="/resource/header/img/socials/hsoc_4.svg" alt="" />
+        {data.slice(0, 4).map((item, index) => {
+          const { name, img } = item;
+          return createImg(name, img, index);
+        })}
       </div>
       {openSocials ? (
         <div className={css.header__soclist}>
-          <a href="#" target="_blank">
-            <img src="/resource/header/img/socials/hsoc_1.svg" alt="" />
-          </a>
-          <a href="#" target="_blank">
-            <img src="/resource/header/img/socials/hsoc_2.svg" alt="" />
-          </a>
-          <a href="#" target="_blank">
-            <img src="/resource/header/img/socials/hsoc_3.svg" alt="" />
-          </a>
-          <a href="#" target="_blank">
-            <img src="/resource/header/img/socials/hsoc_4.svg" alt="" />
-          </a>
+          {data.slice(0, 4).map((item, index) => {
+            const { name, link, img } = item;
+            return (
+              <a key={index} href={link} target="_blank">
+                {createImg(name, img, index)}
+              </a>
+            );
+          })}
           <button
             onClick={hendleSocials}
             className={css.headersoc__close}
