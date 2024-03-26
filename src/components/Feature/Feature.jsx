@@ -1,78 +1,39 @@
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import clsx from "clsx";
+
+import FeatureItem from "./FeatureItem/FeatureItem";
+
+import data from "../../../public/resource/feature/feature.json";
 
 import css from "./Feature.module.scss";
 
 function Feature() {
+  const [dataJSON] = useState(data);
+  const { title, undertitle, features, button, srcJSON } = dataJSON;
+  const { button_text, button_route } = button;
+
   return (
     <section className={css.section__fishka}>
-    <div className="container">
-      <h2 className="section__title">
-        Наша головна фішка
-      </h2>
-      <p className="section__undertitle">
-        Щоб зібрати унікальний бокс вам потрібно:
-      </p>
-      <div className={css.fishka__content}>
-        <div className={css.fishka__inner}>
-          <div className={clsx(css.section__fishka, css.fishka__item, css.m0, "flex")}>
-            <div className={css.fishka__icon}>
-              <img src="assets/img/icons/f_1.svg" alt="" class="contain" />
-            </div>
-            <div className={css.fishka__info}>
-              <h3 className={clsx(css.fishka__title, css.fh1)}>
-                Обрати коробку
-              </h3>
-            </div>
-          </div>
-          <div className={clsx(css.section__fishka, css.fishka__item, css.m1, css.it2, "flex")}>
-            <div className={css.fishka__icon}>
-              <img src="assets/img/icons/f_1.svg" alt="" class="contain" />
-            </div>
-            <div className={css.fishka__info}>
-              <h3 className={clsx(css.fishka__title, css.fh2)}>
-                Обрати коробку
-              </h3>
-            </div>
-          </div>
-          <div className={clsx(css.section__fishka, css.fishka__item, css.m2, "flex")}>
-            <div className={css.fishka__icon}>
-              <img src="assets/img/icons/f_1.svg" alt="" class="contain" />
-            </div>
-            <div className={css.fishka__info}>
-              <h3 className={clsx(css.fishka__title, css.fh3)}>
-                Обрати коробку
-              </h3>
-            </div>
-          </div>
-          <div className={clsx(css.section__fishka, css.fishka__item, css.m3, css.it3, "flex")}>
-            <div className={css.fishka__icon}>
-              <img src="assets/img/icons/f_1.svg" alt="" class="contain" />
-            </div>
-            <div className={css.fishka__info}>
-              <h3 className={clsx(css.fishka__title, css.fh4)}>
-                Обрати коробку
-              </h3>
-            </div>
-          </div>
-          <div className={clsx(css.section__fishka, css.fishka__item, css.it4, "flex")}>
-            <div className={css.fishka__icon}>
-              <img src="assets/img/icons/f_1.svg" alt="" class="contain" />
-            </div>
-            <div className={css.fishka__info}>
-              <h3 className={clsx(css.fishka__title)}>
-                Обрати коробку
-              </h3>
-            </div>
+      <div className="container">
+        {title && <h2 className="section__title">{title}</h2>}
+        {undertitle && <p className="section__undertitle">{undertitle}</p>}
+        <div className={css.fishka__content}>
+          <div className={css.fishka__inner}>
+            {features.map((item, index) => {
+              return <FeatureItem key={index} item={item} srcJSON={srcJSON} index={index} />;
+            })}
           </div>
         </div>
+        {button_text && button_route && (
+          <div className={clsx(css.fishka__bottom, "flex")}>
+            <NavLink to={button_route} className={clsx("button", "reg", css.button)}>
+              <span>{button_text} </span>
+            </NavLink>
+          </div>
+        )}
       </div>
-      <div class={clsx(css.fishka__bottom, "flex")}>
-        <a href="#" class={clsx("button", "reg", css.button)}>
-          <span>Конструктор</span>
-        </a>
-      </div>
-    </div>
-  </section>
+    </section>
   );
 }
 
