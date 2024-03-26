@@ -2,6 +2,7 @@ import Header from '../components/Header/Header';
 import MainSection from '../components/MainSection/MainSection';
 import Adventage from '../components/Adventage/Adventage';
 import Feature from '../components/Feature/Feature';
+import ProductsSection from '../components/ProductsSection/ProductsSection';
 
 function Main() {
 
@@ -12,6 +13,7 @@ function Main() {
           <MainSection />
           <Adventage />
           <Feature />
+          <ProductsSection bg={true} />
         </div>
       </>
     )
