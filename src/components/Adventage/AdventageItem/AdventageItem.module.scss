@@ -1,18 +1,19 @@
 .adv__item {
   border-radius: 0.714em;
   padding: 1.429em 1.714em;
+  margin: 0 .5em;
   padding-right: 1em;
   background-color: var(--cg);
-}
 
-.adv__title {
-  font-size: 1.143em;
-  line-height: 1.625;
-  font-family: var(--fb);
-}
-
-.adv__text {
-  margin-top: 0.429em;
+  h3 {
+    font-size: 1.143em;
+    line-height: 1.625;
+    font-family: var(--fb);
+  }
+  
+  p {
+    margin-top: 0.429em;
+  }
 }
 
 @media screen and (min-width: 760px) {

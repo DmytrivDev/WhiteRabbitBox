@@ -3,7 +3,7 @@ import useOnClickOutside from "use-onclickoutside";
 
 import css from "./Socials.module.scss";
 
-function Socials({ data }) {
+function Socials({ data, srcJSON }) {
   const [openSocials, setOpenSocials] = useState(false);
   const ref = useRef(null);
 
@@ -18,7 +18,7 @@ function Socials({ data }) {
   });
 
   const createImg = (imgName, img, index) => {
-    const imgSrc = "/resource/header/img/socials/" + img;
+    const imgSrc = srcJSON + "socials/" + img;
     return <img key={index} src={imgSrc} alt={imgName} />;
   };
 

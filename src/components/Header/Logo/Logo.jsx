@@ -2,9 +2,9 @@ import { NavLink } from "react-router-dom";
 
 import css from "./Logo.module.scss";
 
-function Logo({data}) {
-  const {logo_imgname, site_name} = data;
-  const logoSrc = "/resource/header/img/"+logo_imgname;
+function Logo({ data, srcJSON }) {
+  const { logo_imgname, site_name } = data;
+  const logoSrc = srcJSON + logo_imgname;
   return (
     <>
       <NavLink to="/" className={css.logo__link}>

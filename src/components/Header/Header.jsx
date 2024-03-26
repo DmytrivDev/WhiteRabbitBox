@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useMediaQuery } from '@react-hook/media-query';
 import clsx from "clsx";
 
@@ -28,11 +28,11 @@ function Header() {
         <div className="container">
           <div className={clsx(css.header__content, "flex")}>
             <div className={clsx(css.header__part, "flex")}>
-              <Logo data={data.logo} />
+              <Logo data={data.logo} srcJSON={data.srcJSON} />
             </div>
             <div className={clsx(css.header__part, "flex")}>
               {!isBreikpoint ? <Navigation data={dataJSON.navigation} /> : ""}
-              {dataJSON.socials.length > 0 && (<Socials data={dataJSON.socials} />)}
+              {dataJSON.socials.length > 0 && (<Socials data={dataJSON.socials} srcJSON={data.srcJSON} />)}
               <HeaderCart />
               {isBreikpoint ? <Hamburger hendleNav={hendleNav} isOpenNav={isOpenNav} /> : ""}
             </div>

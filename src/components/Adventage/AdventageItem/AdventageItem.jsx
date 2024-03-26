@@ -1,13 +1,12 @@
 import css from "./AdventageItem.module.scss";
 
-function AdventageItem() {
+function AdventageItem({item}) {
+  const {name, text} = item;
+  
   return (
     <div className={css.adv__item}>
-      <h3 className={css.adv__title}>Книжкові бокси на будь-який смак</h3>
-      <p className={css.adv__text}>
-        Книжкові бокси від Білого кролика – перший український сервіс, де ви
-        збираєте бокс за власними вподобаннями.
-      </p>
+      {name && (<h3>{name}</h3>)}
+      {text && (<p>{text}</p>)}
     </div>
   );
 }

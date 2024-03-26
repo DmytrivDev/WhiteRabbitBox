@@ -3,9 +3,9 @@ import clsx from "clsx";
 
 import css from "./MainItems.module.scss";
 
-function MainItems({ part }) {
+function MainItems({ part, srcJSON }) {
   const { text, button_text, button_route, photo } = part;
-  const photoSrc = "/resource/main-section/img/" + photo;
+  const photoSrc = srcJSON + photo;
   return (
     <div className={css.main__part}>
       <img src={photoSrc} alt={text} className="cover" />

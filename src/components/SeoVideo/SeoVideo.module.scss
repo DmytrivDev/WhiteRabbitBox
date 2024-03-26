@@ -1,9 +1,5 @@
 .seo__videoinner {
   padding-top: 73%;
-
-  &.adventages__video {
-    display: none;
-  }
 }
 
 .video__play {
@@ -16,6 +12,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  z-index: 5;
   background-color: var(--cb);
   background-repeat: no-repeat;
   background-position: center center;

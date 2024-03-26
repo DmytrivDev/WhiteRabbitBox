@@ -18,7 +18,7 @@ function Header() {
       <div className="container">
         <div className={css.msin__container}>
           {dataJSON.parts.map((part, index) => {
-            return <MainItems key={index} part={part} />;
+            return <MainItems key={index} part={part} srcJSON={data.srcJSON} />;
           })}
           {isBreikpoint && (<FreeDelievery data={dataJSON.free_delievery} />)}
         </div>
