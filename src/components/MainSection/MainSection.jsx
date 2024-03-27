@@ -11,7 +11,7 @@ import css from "./MainSection.module.scss";
 function Header() {
   const isBreikpoint = useMediaQuery('(max-width: 960px)');
 
-  const [dataJSON, setdataJSON] = useState(data);
+  const [dataJSON] = useState(data);
   
   return (
     <section className={css.section__main}>

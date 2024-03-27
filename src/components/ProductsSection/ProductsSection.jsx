@@ -1,8 +1,14 @@
+import { useState } from "react";
 import clsx from "clsx";
+
+import data from '../../../public/resource/bestsellers/bestsellers.json';
 
 import css from "./ProductsSection.module.scss";
 
 function ProductsSection({ bg }) {
+  const [dataJSON] = useState(data);
+  const {title} = dataJSON;
+
   return (
     <section
       className={clsx(css.section__products, {
@@ -10,7 +16,7 @@ function ProductsSection({ bg }) {
       })}
     >
       <div className="container">
-        <h2 className="section__title">Наші бестселлери</h2>
+        <h2 className="section__title">{title}</h2>
         <div className={css.products__seccont}>
           <ul className={clsx(css.products__list, "flex")}>
             <li className={clsx(css.products__item, "flex")}>
@@ -61,7 +67,7 @@ function ProductsSection({ bg }) {
                   <div className={css.priceokd}>125 грн</div>
                   <div className={css.price}>75 грн</div>
                 </div>
-                <button class={css.products__addcart}><span>В кошик</span></button>
+                <button className={css.products__addcart}><span>В кошик</span></button>
               </div>
             </li>
             <li className={clsx(css.products__item, "flex")}>
