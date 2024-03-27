@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from 'axios';
 import clsx from "clsx";
 
 import data from '../../../public/resource/bestsellers/bestsellers.json';
@@ -7,7 +8,12 @@ import css from "./ProductsSection.module.scss";
 
 function ProductsSection({ bg }) {
   const [dataJSON] = useState(data);
+  
   const {title} = dataJSON;
+
+  
+
+  
 
   return (
     <section
