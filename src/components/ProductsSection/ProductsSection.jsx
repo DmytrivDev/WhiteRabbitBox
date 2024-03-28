@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 import clsx from "clsx";
 
@@ -7,7 +8,7 @@ import ProductsItem from "../ProductItem/ProductItem";
 
 import css from "./ProductsSection.module.scss";
 
-function ProductsSection({ bg, sectionJSON, urlAPI, endpoint }) {
+function ProductsSection({ bg, urlAPI, endpoint, sectionJSON }) {
   const { title } = sectionJSON;
 
   const [products, setProducts] = useState([]);
@@ -31,7 +32,7 @@ function ProductsSection({ bg, sectionJSON, urlAPI, endpoint }) {
     let productsRendered = [];
 
     for (let i = 0; i < 4; i++) {
-      productsRendered.push(<ProductsItemLoad key={endpoint + '_' + i} />);
+      productsRendered.push(<ProductsItemLoad key={endpoint + "_" + i} />);
     }
 
     if (products.length > 0) {
@@ -52,10 +53,15 @@ function ProductsSection({ bg, sectionJSON, urlAPI, endpoint }) {
       <div className="container">
         <h2 className="section__title">{title}</h2>
         <div className={css.products__seccont}>
-          <ul className={clsx(css.products__list, "flex")}>
-            {setItems()}
-          </ul>
+          <ul className={clsx(css.products__list, "flex")}>{setItems()}</ul>
         </div>
+        {sectionJSON.button && sectionJSON.button.button_text && sectionJSON.button.button_route && (
+          <div className={clsx(css.products__bottom, "flex")}>
+            <NavLink to={sectionJSON.button.button_route} className={clsx(css.button, "button", "reg")}>
+              <span>{sectionJSON.button.button_text}</span>
+            </NavLink>
+          </div>
+        )}
       </div>
     </section>
   );

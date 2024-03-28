@@ -1,0 +1,9 @@
+{
+    "title": "Гарячі новинки",
+    "button": {
+        "button_text": "Всі бокси",
+        "button_route": "ourboxes"
+    },
+    "enable": true,
+    "srcJSON": "/resource/latest/img/"
+}
