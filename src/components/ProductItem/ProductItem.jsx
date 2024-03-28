@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 import css from "./ProductItem.module.scss";
 
-function ProductsItem({ item }) {
+function ProductsItem({ product }) {
   const {
     name,
     image,
@@ -12,10 +12,8 @@ function ProductsItem({ item }) {
     sale_price,
     date_on_sale_from,
     date_on_sale_to,
-    manage_stock,
-    stock_quantity,
     stock_status,
-  } = item;
+  } = product;
 
   let saleIs = false;
   let dataIs = false;

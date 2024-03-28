@@ -1,32 +1,47 @@
 import { useState, useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 import clsx from "clsx";
 
+import ProductsItemLoad from "../ProductsItemLoad/ProductsItemLoad";
 import ProductsItem from "../ProductItem/ProductItem";
 
 import css from "./ProductsSection.module.scss";
 
-function ProductsSection({ bg, bestsellersJSON }) {
-  const {title} = bestsellersJSON;
+function ProductsSection({ bg, sectionJSON, urlAPI, endpoint }) {
+  const { title } = sectionJSON;
 
-  const [options, setOptions] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const fetchOptions = async () => {
+    const fetchProducts = async () => {
       try {
-        const response = await axios.get('https://whiterabbitsbox.com.ua/wp-json/v2/bestsellers/');
+        const response = await axios.get(urlAPI + endpoint + "/");
         if (response.data.length > 0) {
-          setOptions(response.data);
+          setProducts(response.data);
         }
       } catch (error) {
-        console.error('Error fetching options:', error);
+        console.error("Error fetching options:", error);
       }
     };
 
-    fetchOptions();
+    fetchProducts();
   }, []);
 
-  console.log(options)
+  const setItems = () => {
+    let productsRendered = [];
+
+    for (let i = 0; i < 4; i++) {
+      productsRendered.push(<ProductsItemLoad key={endpoint + '_' + i} />);
+    }
+
+    if (products.length > 0) {
+      productsRendered = products.map((product) => {
+        return <ProductsItem key={product.id} product={product} />;
+      });
+    }
+
+    return productsRendered;
+  };
 
   return (
     <section
@@ -38,9 +53,7 @@ function ProductsSection({ bg, bestsellersJSON }) {
         <h2 className="section__title">{title}</h2>
         <div className={css.products__seccont}>
           <ul className={clsx(css.products__list, "flex")}>
-            {options.map((item) => {
-              return <ProductsItem key={item.id} item={item}/>
-            })}
+            {setItems()}
           </ul>
         </div>
       </div>

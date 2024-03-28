@@ -125,22 +125,22 @@ body {
   justify-content: center;
 
   li {
-      margin: 0 0.429rem;
-      margin-bottom: 0.429rem;
-      width: 0.857rem;
-      height: 0.857rem;
-      border: 1px solid var(--cb);
-      border-radius: 50%;
-      transition: 0.3s;
-      font-size: 0;
+    margin: 0 0.429rem;
+    margin-bottom: 0.429rem;
+    width: 0.857rem;
+    height: 0.857rem;
+    border: 1px solid var(--cb);
+    border-radius: 50%;
+    transition: 0.3s;
+    font-size: 0;
 
-      button {
-          font-size: 0 !important;
-      }
+    button {
+      font-size: 0 !important;
+    }
 
-      &.slick-active {
-          background-color: var(--cb);
-      }
+    &.slick-active {
+      background-color: var(--cb);
+    }
   }
 }
 
@@ -157,6 +157,44 @@ body {
     &:first-child {
       margin-top: 0;
     }
+  }
+}
+
+.loadingAnimation {
+  position: relative;
+  overflow: hidden;
+
+  &::before, &::after {
+    width: 1em;
+    background-color: #f1f7f9;
+    top: -60%;
+    left: -60%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    height: 150%;
+    opacity: 0.5;
+    z-index: 5;
+    left: 0;
+    position: absolute;
+    content: "";
+  }
+
+  &::before {
+    animation: circle .75s linear infinite;
+  }
+
+  &::after {
+    animation: circle .75s .05s linear infinite;
+  }
+}
+
+@keyframes circle {
+  0% {
+    left: -60%;
+    top: -60%;
+  }
+  100% {
+    left: 100%;
+    top: 100%;
   }
 }
 

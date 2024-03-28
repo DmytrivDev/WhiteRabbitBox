@@ -8,8 +8,10 @@ import ProductsSection from "../components/ProductsSection/ProductsSection";
 
 import dataBestsellers from "../../public/resource/bestsellers/bestsellers.json";
 
-function Main() {
+function Main({urlAPI}) {
   const [bestsellersJSON] = useState(dataBestsellers);
+  const bestsellersEndpoint = "bestsellers";
+  const latestEndpoint = "latest";
 
   return (
     <>
@@ -19,7 +21,10 @@ function Main() {
         <Adventage />
         <Feature />
         {bestsellersJSON.enable && (
-          <ProductsSection bg={true} bestsellersJSON={bestsellersJSON} />
+          <ProductsSection bg={true} sectionJSON={bestsellersJSON} urlAPI={urlAPI} endpoint={bestsellersEndpoint} />
+        )}
+        {bestsellersJSON.enable && (
+          <ProductsSection bg={true} sectionJSON={bestsellersJSON} urlAPI={urlAPI} endpoint={latestEndpoint} />
         )}
       </div>
     </>
