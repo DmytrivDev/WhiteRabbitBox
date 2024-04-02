@@ -1,0 +1,30 @@
+{
+    "title": "Відгуки",
+    "text": "Привіт! Наші відгуки відображають думки реальних покупців, які діляться своїми враженнями в соціальних мережах. Приєднуйтеся до нас на цих платформах",
+    "phone_img": "phone.png",
+    "rev_placeholder": "placeholder.png",
+    "socials": [
+        {
+            "name": "Instagram",
+            "link": "#",
+            "img": "fsoc_1.svg"
+        },
+        {
+            "name": "TikTok",
+            "link": "#",
+            "img": "fsoc_2.svg"
+        },
+        {
+            "name": "X",
+            "link": "#",
+            "img": "fsoc_3.svg"
+        },
+        {
+            "name": "Telegram",
+            "link": "#",
+            "img": "fsoc_4.svg"
+        }
+    ],
+    "enable": true,
+    "srcJSON": "/resource/reviews/img/"
+}
