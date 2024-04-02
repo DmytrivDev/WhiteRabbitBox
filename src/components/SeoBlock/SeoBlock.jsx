@@ -1,17 +1,23 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useMediaQuery } from "@react-hook/media-query";
 import clsx from "clsx";
 
 import SeoLoading from "./SeoLoading/SeoLoading";
+import SeoVideo from "../SeoVideo/SeoVideo";
 
 import css from "./SeoBlock.module.scss";
 
-function SeoBlock({ urlAPI, endpoint }) {
+function SeoBlock({ seoJSON, urlAPI, endpoint }) {
+  const { video, srcJSON } = seoJSON;
+  const { video_src, video_img } = video;
+
   const defaultSeoText = {
     col1: "",
     col2: "",
   };
 
+  const isBreikpointPt = useMediaQuery("(max-width: 960px)");
   const [seoText, setSeoText] = useState(defaultSeoText);
   const [seoTextDefault, setSeoTextDefault] = useState(true);
 
@@ -33,24 +39,22 @@ function SeoBlock({ urlAPI, endpoint }) {
     fetchSeoText();
   }, []);
 
-  console.log(seoTextDefault)
+  console.log(seoTextDefault);
 
   return (
     <section className={css.section__seo}>
       <div className="container">
         <div className={css.seo__content}>
-          <div className={css.seo__video}>
-            <div className="seo__videoinner videocont">
-              <video
-                poster="assets/img/content/product_2.jpg"
-                className="cover"
-              >
-                <source src="assets/img/content/video.m4v" type="video/mp4" />
-                <source src="assets/img/content/video.mp4" type="video/mp4" />
-              </video>
-              <a href="#" className={css.video__play}></a>
+          {video_src && video_img && isBreikpointPt && (
+            <div className={css.seo__video}>
+              <SeoVideo
+                isAdventages={false}
+                video_src={video_src}
+                video_img={video_img}
+                srcJSON={srcJSON}
+              />
             </div>
-          </div>
+          )}
           {!seoTextDefault ? (
             <div className={clsx(css.seo__text, css.seoblock)}>
               {col1 && (

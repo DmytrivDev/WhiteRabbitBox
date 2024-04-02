@@ -1,0 +1,8 @@
+{
+    "video": {
+        "video_src": "video.mp4",
+        "video_img": "video.jpg"
+    },
+    "enable": true,
+    "srcJSON": "/resource/seo/img/"
+}

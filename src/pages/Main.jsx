@@ -12,11 +12,13 @@ import Footer from "../components/Footer/Footer";
 import dataBestsellers from "../../public/resource/bestsellers/bestsellers.json";
 import dataLatest from "../../public/resource/latest/latest.json";
 import dataReviews from "../../public/resource/reviews/reviews.json";
+import dataSeo from "../../public/resource/seo/seo.json";
 
 function Main({urlAPI}) {
   const [bestsellersJSON] = useState(dataBestsellers);
   const [latestJSON] = useState(dataLatest);
   const [reviewsJSON] = useState(dataReviews);
+  const [seoJSON] = useState(dataSeo);
   const bestsellersEndpoint = "bestsellers";
   const latestEndpoint = "latest";
   const reviewsEndpoint = "reviews";
@@ -38,7 +40,9 @@ function Main({urlAPI}) {
         {reviewsJSON.enable && (
           <Reviews reviewsJSON={reviewsJSON} urlAPI={urlAPI} endpoint={reviewsEndpoint} />
         )}
-        <SeoBlock urlAPI={urlAPI} endpoint={seoEndpoint} />
+        {seoJSON.enable && (
+          <SeoBlock seoJSON={seoJSON} urlAPI={urlAPI} endpoint={seoEndpoint} />
+        )}
       </div>
       <Footer />
     </>
