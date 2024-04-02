@@ -32,7 +32,7 @@ function Socials({ data, srcJSON }) {
       </div>
       {openSocials ? (
         <div className={css.header__soclist}>
-          {data.slice(0, 4).map((item, index) => {
+          {data.map((item, index) => {
             const { name, link, img } = item;
             return (
               <a key={index} href={link} target="_blank">

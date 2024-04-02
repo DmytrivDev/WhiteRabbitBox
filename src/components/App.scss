@@ -124,6 +124,16 @@ body {
   display: flex !important;
   justify-content: center;
 
+  &.white {
+    li {
+      border-color: #fff;
+
+      &.slick-active {
+        background-color: #fff;
+      }
+    }
+  }
+
   li {
     margin: 0 0.429rem;
     margin-bottom: 0.429rem;
@@ -136,6 +146,8 @@ body {
 
     button {
       font-size: 0 !important;
+      width: 100%;
+      height: 100%;
     }
 
     &.slick-active {
@@ -195,6 +207,28 @@ body {
   100% {
     left: 100%;
     top: 100%;
+  }
+}
+
+
+.footer__list {
+  margin-top: 1em;
+}
+
+.footer__socitem {
+  margin-right: 1.143em;
+  margin-top: 0.429em;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  a {
+    img {
+      height: 2.143em;
+      width: auto;
+      display: block;
+    }
   }
 }
 

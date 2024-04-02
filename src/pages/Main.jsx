@@ -6,10 +6,12 @@ import Adventage from "../components/Adventage/Adventage";
 import Feature from "../components/Feature/Feature";
 import ProductsSection from "../components/ProductsSection/ProductsSection";
 import Reviews from "../components/Reviews/Reviews";
+import SeoBlock from "../components/SeoBlock/SeoBlock";
+import Footer from "../components/Footer/Footer";
 
 import dataBestsellers from "../../public/resource/bestsellers/bestsellers.json";
 import dataLatest from "../../public/resource/latest/latest.json";
-import dataReviews from "../../../public/resource/reviews/reviews.json";
+import dataReviews from "../../public/resource/reviews/reviews.json";
 
 function Main({urlAPI}) {
   const [bestsellersJSON] = useState(dataBestsellers);
@@ -17,6 +19,8 @@ function Main({urlAPI}) {
   const [reviewsJSON] = useState(dataReviews);
   const bestsellersEndpoint = "bestsellers";
   const latestEndpoint = "latest";
+  const reviewsEndpoint = "reviews";
+  const seoEndpoint = "seohome";
 
   return (
     <>
@@ -32,9 +36,11 @@ function Main({urlAPI}) {
           <ProductsSection bg={false} sectionJSON={latestJSON} urlAPI={urlAPI} endpoint={latestEndpoint} />
         )}
         {reviewsJSON.enable && (
-          <Reviews sectionJSON={reviewsJSON} />
+          <Reviews reviewsJSON={reviewsJSON} urlAPI={urlAPI} endpoint={reviewsEndpoint} />
         )}
+        <SeoBlock urlAPI={urlAPI} endpoint={seoEndpoint} />
       </div>
+      <Footer />
     </>
   );
 }

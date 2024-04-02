@@ -124,16 +124,12 @@
 
 @media screen and (min-width: 960px) {
   .products__item {
-    width: 25%;
-    border: 1px solid var(--cg) !important;
-  }
-  .products__item {
     padding: 1.286em;
     padding-top: 1.071em;
     border-radius: 0.714em;
-    margin: 0 0.786em;
-    margin-bottom: 1.571em;
-    width: calc(25% - 1.571em);
+    margin: 0;
+    border: 1px solid var(--cg) !important;
+    width: 100%;
     border: none;
   }
   .products__name {

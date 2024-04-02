@@ -1,0 +1,44 @@
+.seo__part {
+  margin-bottom: 1em;
+
+  span {
+    height: 1.47em;
+    margin-bottom: 0.14em;
+    width: 100%;
+    display: block;
+    background-color: var(--cb);
+    opacity: 0.5;
+
+    &:last-child {
+      width: 75%;
+      margin-bottom: 0;
+    }
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+
+  * {
+    font-size: 0.857em;
+  }
+
+  p {
+    margin-bottom: 1em;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .seo__part {
+    width: calc(50% - 2em);
+    margin: 0;
+
+    * {
+      font-size: 1em;
+    }
+  }
+}
