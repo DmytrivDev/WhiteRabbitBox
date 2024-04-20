@@ -39,8 +39,6 @@ function SeoBlock({ seoJSON, urlAPI, endpoint }) {
     fetchSeoText();
   }, []);
 
-  console.log(seoTextDefault);
-
   return (
     <section className={css.section__seo}>
       <div className="container">

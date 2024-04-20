@@ -1,0 +1,52 @@
+{
+    "title_contacts": "Зв’язатись з нами",
+    "constacts": [
+        {
+            "text": "+38 093 177 5152",
+            "url": "tel:380931775152",
+            "name": "Телефон",
+            "icon": "ficon_1.svg"
+        },
+        {
+            "text": "sales@kashalot.gift",
+            "url": "mailto:sales@kashalot.gift",
+            "name": "Email",
+            "icon": "ficon_2.svg"
+        }
+    ],
+    "title_mess": "Зв’язатись з нами",
+    "mess": [
+        {
+            "text": "Telegram: @whiterabbitsbox",
+            "url": ""
+        },
+        {
+            "text": "Viber: 380931775152",
+            "url": ""
+        }
+    ],
+    "title_soc": "Ми в соціальних мережах",
+    "socials": [
+        {
+            "name": "Instagram",
+            "link": "#",
+            "img": "fsoc_1.svg"
+        },
+        {
+            "name": "TikTok",
+            "link": "#",
+            "img": "fsoc_2.svg"
+        },
+        {
+            "name": "X",
+            "link": "#",
+            "img": "fsoc_3.svg"
+        },
+        {
+            "name": "Telegram",
+            "link": "#",
+            "img": "fsoc_4.svg"
+        }
+    ],
+    "srcJSON": "/resource/footer/img/"
+}

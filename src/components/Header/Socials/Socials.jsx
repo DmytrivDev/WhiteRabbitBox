@@ -6,7 +6,7 @@ import css from "./Socials.module.scss";
 function Socials({ data, srcJSON }) {
   const [openSocials, setOpenSocials] = useState(false);
   const ref = useRef(null);
-
+ 
   function hendleSocials(event) {
     event.preventDefault();
 
