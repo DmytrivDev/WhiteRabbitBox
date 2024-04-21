@@ -1,12 +1,11 @@
-import Header from '../components/Header/Header';
+import PageHeading from "../components/PageHeading/PageHeading";
 
 function About() {
+  return (
+    <div className="wrapper">
+      <PageHeading title={"Про нас"} isBigger={true} />
+    </div>
+  );
+}
 
-    return (
-      <>
-        <Header />
-      </>
-    )
-  }
-  
-  export default About;
+export default About;

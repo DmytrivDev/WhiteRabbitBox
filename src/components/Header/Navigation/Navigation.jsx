@@ -6,7 +6,7 @@ function Navigation({ data }) {
   return (
     <nav>
       <ul className={css.header__nav}>
-        {data.map((item, index) => {
+        {data.navigation.map((item, index) => {
           return <NavItem item={item} key={'nav_'+index} />;
         })}
       </ul>

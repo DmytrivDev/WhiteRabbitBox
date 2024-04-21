@@ -1,12 +1,11 @@
 import { useState } from "react";
 import clsx from "clsx";
 
-import data from "../../../public/resource/footer/footer.json";
+import dataJSON from "../../../public/resource/footer/footer.json";
 
 import css from "./Footer.module.scss";
 
 function Footer() {
-  const [dataJSON, setdataJSON] = useState(data);
   const {
     title_contacts,
     constacts,

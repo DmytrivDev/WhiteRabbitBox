@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useMediaQuery } from "@react-hook/media-query";
 import clsx from "clsx";
 
 import SeoLoading from "./SeoLoading/SeoLoading";
 import SeoVideo from "../SeoVideo/SeoVideo";
 
+import { fetchFunction } from "../../api/fetchAPI";
+
 import css from "./SeoBlock.module.scss";
 
-function SeoBlock({ seoJSON, urlAPI, endpoint }) {
+function SeoBlock({ seoJSON, endpoint }) {
   const { video, srcJSON } = seoJSON;
   const { video_src, video_img } = video;
 
@@ -26,7 +27,7 @@ function SeoBlock({ seoJSON, urlAPI, endpoint }) {
   useEffect(() => {
     const fetchSeoText = async () => {
       try {
-        const response = await axios.get(urlAPI + endpoint + "/");
+        const response = await fetchFunction(endpoint);
         if (response.data) {
           setSeoText(response.data);
           setSeoTextDefault(false);

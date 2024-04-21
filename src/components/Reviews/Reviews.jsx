@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { useMediaQuery } from "@react-hook/media-query";
-import axios from "axios";
 import Slider from "react-slick";
 import clsx from "clsx";
 
+import { fetchFunction } from "../../api/fetchAPI";
+
 import css from "./Reviews.module.scss";
 
-function Reviews({ reviewsJSON, urlAPI, endpoint }) {
+function Reviews({ reviewsJSON, endpoint }) {
   const { title, text, phone_img, rev_placeholder, socials, srcJSON } = reviewsJSON;
   const placeImgSrc = srcJSON + rev_placeholder;
   const defoultReviews = [
@@ -33,7 +34,7 @@ function Reviews({ reviewsJSON, urlAPI, endpoint }) {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get(urlAPI + endpoint + "/");
+        const response = await fetchFunction(endpoint);
         if (response.data.length > 0) {
           setReviews(response.data);
           setIsDefault(false);

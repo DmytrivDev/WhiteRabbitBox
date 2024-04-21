@@ -3,7 +3,7 @@ import useOnClickOutside from "use-onclickoutside";
 
 import css from "./Socials.module.scss";
 
-function Socials({ data, srcJSON }) {
+function Socials({ data }) {
   const [openSocials, setOpenSocials] = useState(false);
   const ref = useRef(null);
  
@@ -18,21 +18,21 @@ function Socials({ data, srcJSON }) {
   });
 
   const createImg = (imgName, img, index) => {
-    const imgSrc = srcJSON + "socials/" + img;
+    const imgSrc = data.srcJSON + "socials/" + img;
     return <img key={index} src={imgSrc} alt={imgName} />;
   };
 
   return (
     <div ref={ref} className={css.header__socvont}>
       <div onClick={hendleSocials} className={css.header__socctrl}>
-        {data.slice(0, 4).map((item, index) => {
+        {data.socials.slice(0, 4).map((item, index) => {
           const { name, img } = item;
           return createImg(name, img, index);
         })}
       </div>
       {openSocials ? (
         <div className={css.header__soclist}>
-          {data.map((item, index) => {
+          {data.socials.map((item, index) => {
             const { name, link, img } = item;
             return (
               <a key={index} href={link} target="_blank">

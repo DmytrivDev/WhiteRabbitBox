@@ -8,7 +8,7 @@ import data from '../../../public/resource/main-section/main-section.json';
 
 import css from "./MainSection.module.scss";
 
-function Header() {
+function MainSection() {
   const isBreikpoint = useMediaQuery('(max-width: 960px)');
 
   const [dataJSON] = useState(data);
@@ -27,4 +27,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default MainSection;

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { useMediaQuery } from '@react-hook/media-query';
 import clsx from "clsx";
 
@@ -9,18 +10,22 @@ import HeaderCart from "./HeaderCart/HeaderCart";
 import Hamburger from "./Hamburger/Hamburger";
 import MobileNav from "./MobileNav/MobileNav"; 
 
-import data from '../../../public/resource/header/header.json';
+import dataJSON from '../../../public/resource/header/header.json';
 
 import css from "./Header.module.scss";
 
 function Header() {
   const [isOpenNav, setIsOpenNav] = useState(false);
-  const [dataJSON, setdataJSON] = useState(data);
+  const location = useLocation();
   const isBreikpoint = useMediaQuery('(max-width: 960px)');
 
   const hendleNav = () => {
     setIsOpenNav(!isOpenNav);
   }
+
+  useEffect(() => {
+    setIsOpenNav(false);
+  }, [location])
 
   return (
     <>
@@ -28,18 +33,18 @@ function Header() {
         <div className="container">
           <div className={clsx(css.header__content, "flex")}>
             <div className={clsx(css.header__part, "flex")}>
-              <Logo data={data.logo} srcJSON={data.srcJSON} />
+              <Logo data={dataJSON} />
             </div>
             <div className={clsx(css.header__part, "flex")}>
-              {!isBreikpoint ? <Navigation data={dataJSON.navigation} /> : ""}
-              {dataJSON.socials.length > 0 && (<Socials data={dataJSON.socials} srcJSON={data.srcJSON} />)}
+              {!isBreikpoint ? <Navigation data={dataJSON} /> : ""}
+              {dataJSON.socials.length > 0 && (<Socials data={dataJSON} />)}
               <HeaderCart />
               {isBreikpoint ? <Hamburger hendleNav={hendleNav} isOpenNav={isOpenNav} /> : ""}
             </div>
           </div>
         </div>
       </header>
-      {isBreikpoint ? <MobileNav isOpenNav={isOpenNav} hendleNav={hendleNav} data={dataJSON.navigationMobile}  dataTests={dataJSON.testsNav} /> : ""}
+      {isBreikpoint ? <MobileNav isOpenNav={isOpenNav} hendleNav={hendleNav} data={dataJSON} /> : ""}
     </>
   );
 }

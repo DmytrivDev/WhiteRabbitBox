@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
 import clsx from "clsx";
-
+ 
 import ProductsItemLoad from "../ProductsItemLoad/ProductsItemLoad";
 import ProductsItem from "../ProductItem/ProductItem";
 
+import { fetchFunction } from "../../api/fetchAPI";
+
 import css from "./ProductsSection.module.scss";
 
-function ProductsSection({ bg, urlAPI, endpoint, sectionJSON }) {
+function ProductsSection({ bg, endpoint, sectionJSON }) {
   const { title } = sectionJSON;
 
   const [products, setProducts] = useState([]);
@@ -16,7 +17,7 @@ function ProductsSection({ bg, urlAPI, endpoint, sectionJSON }) {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(urlAPI + endpoint + "/");
+        const response = await fetchFunction(endpoint);
         if (response.data.length > 0) {
           setProducts(response.data);
         }

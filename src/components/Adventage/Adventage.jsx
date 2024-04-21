@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import AdventageItem from "./AdventageItem/AdventageItem";
 import SeoVideo from "../SeoVideo/SeoVideo";
 
-import data from "../../../public/resource/adventages/adventages.json";
+import dataJSON from "../../../public/resource/adventages/adventages.json";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -15,7 +15,6 @@ function Adventage() {
   const isBreikpointPt = useMediaQuery("(max-width: 960px)");
   const isBreikpointMb = useMediaQuery("(max-width: 760px)");
 
-  const [dataJSON] = useState(data);
   const { title, undertitle, adventages, video, srcJSON } = dataJSON;
   const { video_src, video_img } = video;
 

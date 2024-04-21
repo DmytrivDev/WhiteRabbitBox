@@ -1,18 +1,20 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import { HOME } from "../../../constants";
 
 import css from "./Logo.module.scss";
 
 function Logo({ data, srcJSON }) {
-  const { logo_imgname, site_name } = data;
-  const logoSrc = srcJSON + logo_imgname;
+  const { logo_imgname, site_name } = data.logo;
+  const logoSrc = data.srcJSON + logo_imgname;
   return (
     <>
-      <NavLink to="/" className={css.logo__link}>
+      <Link to={HOME} className={css.logo__link}>
         <img src={logoSrc} className={css.logo__link} />
-      </NavLink>
-      <NavLink to="/" className={css.header__title}>
+      </Link>
+      <Link to={HOME} className={css.header__title}>
         {site_name}
-      </NavLink>
+      </Link>
     </>
   );
 }

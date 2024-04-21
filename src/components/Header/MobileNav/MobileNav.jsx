@@ -7,7 +7,7 @@ import NavTests from "./NavTests/NavTests";
 
 import css from "./MobileNav.module.scss";
 
-function MobileNav({ isOpenNav, hendleNav, data, dataTests }) {
+function MobileNav({ isOpenNav, hendleNav, data }) {
   useEffect(() => {
     if (isOpenNav) {
       document.body.classList.add("overhideAll");
@@ -35,12 +35,12 @@ function MobileNav({ isOpenNav, hendleNav, data, dataTests }) {
         <div className={css.mobilenav__inner}>
           <nav>
             <ul className={css.mob__nav}>
-              {data.map((item, index) => {
+              {data.navigationMobile.map((item, index) => {
                 return <NavItemMob item={item} key={"navmob_" + index} />;
               })}
             </ul>
           </nav>
-          {dataTests.length > 0 && (<NavTests dataTests={dataTests} />)}
+          {data.testsNav.length > 0 && (<NavTests dataTests={data.testsNav} />)}
         </div>
       </div>
     </Menu>
