@@ -1,0 +1,46 @@
+.about__loafing {
+  span {
+    height: 1.97em;
+    margin-bottom: 0.31em;
+    width: 100%;
+    display: block;
+    background-color: var(--cb);
+    opacity: 0.5;
+
+    &:last-child {
+      width: 75%;
+      margin-bottom: 0;
+    }
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+
+  * {
+    font-size: 0.857em;
+  }
+
+  p {
+    margin-bottom: 1em;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .about__loafing {
+    margin: 0;
+
+    span {
+      height: 1.5em;
+      margin-bottom: 0.2em;
+    }
+
+    * {
+      font-size: 1em;
+    }
+  }
+}

@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 import { useMediaQuery } from "@react-hook/media-query";
 import clsx from "clsx";
 
 import SeoLoading from "./SeoLoading/SeoLoading";
 import SeoVideo from "../SeoVideo/SeoVideo";
 
-import { fetchFunction } from "../../api/fetchAPI";
+import { RESTAPI_URL } from "../../constants";
 
 import css from "./SeoBlock.module.scss";
 
@@ -27,7 +28,7 @@ function SeoBlock({ seoJSON, endpoint }) {
   useEffect(() => {
     const fetchSeoText = async () => {
       try {
-        const response = await fetchFunction(endpoint);
+        const response = await axios.get(RESTAPI_URL + endpoint + "/");
         if (response.data) {
           setSeoText(response.data);
           setSeoTextDefault(false);

@@ -8,17 +8,17 @@ import css from "./PageHeading.module.scss";
 function PageHeading({ title, isBigger }) {
   return (
     <section
-      class={clsx(css.section__head, {
+      className={clsx(css.section__head, {
         [css.bigger]: isBigger,
       })}
     >
-      <div class="container">
-        <ul class={css.breadcrumbs}>
+      <div className="container">
+        <ul className={css.breadcrumbs}>
           <li>
             <Link to={HOME}>Головна</Link>
           </li>
         </ul>
-        <h1 class={css.page__title}>{title}</h1>
+        <h1 className={css.page__title}>{title}</h1>
       </div>
     </section>
   );

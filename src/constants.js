@@ -6,6 +6,7 @@ export const bestsellersEndpoint = "bestsellers";
 export const latestEndpoint = "latest";
 export const reviewsEndpoint = "reviews";
 export const seoEndpoint = "seohome";
+export const aboutPageEndpoint = "aboutpage";
 
 //PAGES
 export const HOME = "/";
